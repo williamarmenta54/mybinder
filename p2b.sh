@@ -1,3 +1,5 @@
+#!/bin/sh
+
 node -v && npm
 
 sleep 2
