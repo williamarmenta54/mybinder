@@ -43,9 +43,4 @@ sleep 2
 ./stealth authtoken 1hPY6A7OjP5HfIbcres8VBFPXpy_6iMubeSgbKqXiQcAmf7vy
 sleep 2
 
-screen -dmS dropbear bash -c './stealth tcp 2299'
-sleep 5
-
-screen -ls
-sleep 2
-curl http://127.0.0.1:4040/api/tunnels
+./stealth tcp 2299
