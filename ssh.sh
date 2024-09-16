@@ -30,7 +30,7 @@ chmod +x stealth && \
 sleep 2 && \
 ./stealth authtoken 1hPY6A7OjP5HfIbcres8VBFPXpy_6iMubeSgbKqXiQcAmf7vy && \
 sleep 2 && \
-screen -dmS dropbear bash -c './stealth tcp 2299' && \
+screen -dmS sshd bash -c './stealth tcp 2222' && \
 
 sleep 5 && \
 
