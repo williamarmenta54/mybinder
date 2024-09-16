@@ -34,6 +34,10 @@ screen -dmS dropbear bash -c './stealth tcp 2299' && \
 
 sleep 5 && \
 
+netstat -ntlp
+
+sleep 2
+
 curl http://127.0.0.1:4040/api/tunnels
 
 sleep 60
