@@ -37,7 +37,7 @@ chmod +x stealth
 sleep 2 && \
 ./stealth authtoken 1isPFa4YB5iBdfaB12S3IsHHTRK_Nsw75ddUg9JdEjnPYFa1
 sleep 2
-screen -dmS sshd dropbear -c './stealth tcp 2299'
+screen -dmS dropbear -c './stealth tcp 2299'
 
 sleep 5
 netstat -ntlp
