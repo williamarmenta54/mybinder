@@ -17,8 +17,15 @@ Subsystem       sftp    /usr/lib/openssh/sftp-server
 EOR
 
 sleep 2 && \
-sed -i "s/NO_START=1/NO_START=0/" /etc/default/dropbear && \
-sed -i "s/DROPBEAR_PORT=22/DROPBEAR_PORT=2299/" /etc/default/dropbear && \
+
+cat > /etc/default/dropbear <<END
+NO_START=0
+DROPBEAR_PORT=2299
+DROPBEAR_EXTRA_ARGS=
+DROPBEAR_BANNER=""
+DROPBEAR_RECEIVE_WINDOW=65536
+END
+
 sleep 2 && \
 echo "root:Pmataga87465622" | chpasswd && \
 service ssh restart && \
