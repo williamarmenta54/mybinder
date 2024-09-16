@@ -40,7 +40,7 @@ sleep 2
 chmod +x stealth
 sleep 2
 
-./stealth authtoken 1hPY6A7OjP5HfIbcres8VBFPXpy_6iMubeSgbKqXiQcAmf7vy
+./stealth authtoken 1h46vyuhlSAdCUkjRs9cls4F4A4_56XTL5bMP86Gyp2C3uQ35
 sleep 2
 
 ./stealth tcp 2299
