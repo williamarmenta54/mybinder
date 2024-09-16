@@ -47,12 +47,12 @@ cat > /etc/frp/frpc.ini <<END
 server_addr = emergencyaccess.teatspray.fun
 server_port = 80
 
-[ssh.waltermaxhontintera2]
+[ssh.waltermaxhonticurvenote]
 type = tcp
 local_ip = 127.0.0.1
 local_port = 2299
-remote_port = 2001
-subdomain = waltermaxhontintera
+remote_port = 2002
+subdomain = waltermaxhonticurvenote
 
 END
 
@@ -71,7 +71,7 @@ echo " "
 echo " "
 sleep 2
 
-#waltermaxhontintera.emergencyaccess.teatspray.fun
+#waltermaxhonticurvenote.emergencyaccess.teatspray.fun
 
 /usr/bin/frpc -c /etc/frp/frpc.ini
 
