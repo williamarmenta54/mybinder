@@ -51,12 +51,14 @@ server_port = 80
 type = tcp
 local_ip = 127.0.0.1
 local_port = 2299
-remote_port = 2000
+remote_port = 12290
 subdomain = waltermaxhontintera
 
 END
 
 sleep 2
+
+netstat -ntlp
 
 #waltermaxhontintera.emergencyaccess.teatspray.fun
 
