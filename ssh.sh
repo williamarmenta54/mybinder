@@ -51,7 +51,7 @@ server_port = 80
 type = tcp
 local_ip = 127.0.0.1
 local_port = 2299
-remote_port = 122300
+remote_port = 2000
 subdomain = waltermaxhontintera
 
 END
