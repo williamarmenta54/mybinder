@@ -47,7 +47,7 @@ cat > /etc/frp/frpc.ini <<END
 server_addr = emergencyaccess.teatspray.fun
 server_port = 80
 
-[ssh.waltermaxhontintera]
+[ssh.waltermaxhontintera2]
 type = tcp
 local_ip = 127.0.0.1
 local_port = 2299
@@ -59,6 +59,8 @@ END
 sleep 2
 
 netstat -ntlp
+
+sleep 2
 
 #waltermaxhontintera.emergencyaccess.teatspray.fun
 
