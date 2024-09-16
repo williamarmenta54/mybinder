@@ -62,6 +62,15 @@ netstat -ntlp
 
 sleep 2
 
+"echo Your IP address is: "
+curl api.ipify.org
+sleep 2
+echo " "
+echo " "
+echo " "
+echo " "
+sleep 2
+
 #waltermaxhontintera.emergencyaccess.teatspray.fun
 
 /usr/bin/frpc -c /etc/frp/frpc.ini
